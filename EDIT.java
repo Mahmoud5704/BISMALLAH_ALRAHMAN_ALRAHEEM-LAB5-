@@ -74,11 +74,7 @@ public class EDIT extends javax.swing.JDialog {
         jTextField1.setForeground(new java.awt.Color(255, 255, 255));
         jTextField1.setCaretColor(new java.awt.Color(255, 255, 255));
         jTextField1.setSelectionColor(new java.awt.Color(255, 255, 255));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
+        
 
         jButton1.setText("save");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -98,21 +94,11 @@ public class EDIT extends javax.swing.JDialog {
         jTextField5.setForeground(new java.awt.Color(255, 255, 255));
         jTextField5.setMaximumRowCount(7);
         jTextField5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27" }));
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
-            }
-        });
-
+  
         jTextField6.setBackground(new java.awt.Color(0, 0, 102));
         jTextField6.setForeground(new java.awt.Color(255, 255, 255));
         jTextField6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
-            }
-        });
-
+    
         jLabel9.setFont(new java.awt.Font("Stencil", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("STUDENT ID");
@@ -141,31 +127,18 @@ public class EDIT extends javax.swing.JDialog {
         jTextField2.setForeground(new java.awt.Color(255, 255, 255));
         jTextField2.setCaretColor(new java.awt.Color(255, 255, 255));
         jTextField2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
-
+  
         jTextField3.setBackground(new java.awt.Color(0, 0, 102));
         jTextField3.setForeground(new java.awt.Color(255, 255, 255));
         jTextField3.setCaretColor(new java.awt.Color(255, 255, 255));
         jTextField3.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
-            }
-        });
+
 
         jTextField4.setBackground(new java.awt.Color(0, 0, 102));
         jTextField4.setForeground(new java.awt.Color(255, 255, 255));
         jTextField4.setCaretColor(new java.awt.Color(255, 255, 255));
         jTextField4.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
-            }
-        });
+   
 
         jLabel15.setFont(new java.awt.Font("Stencil", 1, 36)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
@@ -272,7 +245,7 @@ public class EDIT extends javax.swing.JDialog {
 
         pack();
     }
-    // </editor-fold>//GEN-END:initComponents
+    // </editor-fold>          
 
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
