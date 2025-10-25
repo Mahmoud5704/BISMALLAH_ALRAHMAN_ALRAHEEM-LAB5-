@@ -124,11 +124,7 @@ public class SEARCH_UPDATE_STUDENT extends javax.swing.JPanel {
                 jTextField2ActionPerformed(evt);
             }
         });
-        jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTextField2KeyReleased(evt);
-            }
-        });
+   
 
         jButton1.setText("UPDATE");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -138,11 +134,7 @@ public class SEARCH_UPDATE_STUDENT extends javax.swing.JPanel {
         });
 
         jButton2.setText("BACK");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
+    
 
         jLabel10.setFont(new java.awt.Font("Stencil", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
@@ -194,9 +186,6 @@ public class SEARCH_UPDATE_STUDENT extends javax.swing.JPanel {
         edittable.setGridColor(new java.awt.Color(255, 255, 255));
         edittable.setShowGrid(true);
         edittable.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                edittableAncestorAdded(evt);
-            }
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
