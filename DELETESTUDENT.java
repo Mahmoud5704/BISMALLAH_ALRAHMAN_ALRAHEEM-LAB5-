@@ -18,7 +18,7 @@ private JFrame frame;
         }
 
     }
-    @SuppressWarnings("unchecked")
+       @SuppressWarnings("unchecked")
     // do not change anything here
     private void initComponents() {
 
@@ -53,11 +53,7 @@ private JFrame frame;
         jPanel1.setToolTipText("ADD STUDENT");
 
         jButton1.setText("DELETE");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+
 
         jButton2.setText("BACK");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -108,15 +104,6 @@ private JFrame frame;
         DELETE_TABLE.setToolTipText("MMM");
         DELETE_TABLE.setGridColor(new java.awt.Color(255, 255, 255));
         DELETE_TABLE.setShowGrid(true);
-        DELETE_TABLE.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                DELETE_TABLEAncestorAdded(evt);
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-        });
         jScrollPane2.setViewportView(DELETE_TABLE);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -173,7 +160,8 @@ private JFrame frame;
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE))
                 .addGap(0, 0, 0))
         );
-    }// </editor-fold>//GEN-END:initComponents
+    }// </editor-fold>                        
+
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
         new MAIN().setVisible(true);
