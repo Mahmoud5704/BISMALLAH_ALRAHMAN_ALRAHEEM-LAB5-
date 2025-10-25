@@ -298,7 +298,16 @@ public class ADDSTUDENT extends javax.swing.JPanel {
         new MAIN().setVisible(true);
         frame.dispose();  
     }
-
+    private void jComboBox5ActionPerformed(java.awt.event.ActionEvent evt) {}
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {}
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {}
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {}
+    private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {}
+    private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {}
+    private void jComboBox6ActionPerformed(java.awt.event.ActionEvent evt) {}
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {}
+    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {}
+    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
