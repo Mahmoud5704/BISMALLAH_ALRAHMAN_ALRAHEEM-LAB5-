@@ -9,7 +9,7 @@ public class MAIN extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }
 
-    @SuppressWarnings("unchecked")
+  @SuppressWarnings("unchecked")
     // don't change anything here!!!!!
     private void initComponents() {
 
@@ -29,12 +29,7 @@ public class MAIN extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 51, 51));
-        addContainerListener(new java.awt.event.ContainerAdapter() {
-            public void componentAdded(java.awt.event.ContainerEvent evt) {
-                formComponentAdded(evt);
-            }
-        });
-
+     
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\ELOott\\Documents\\Textbook-graduation.png")); // NOI18N
@@ -85,11 +80,7 @@ public class MAIN extends javax.swing.JFrame {
         });
 
         jButton7.setText("SEACH AND UPDATE STUDENT");
-        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton7MouseClicked(evt);
-            }
-        });
+      
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
@@ -152,7 +143,7 @@ public class MAIN extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }// </editor-fold>                        
 
     
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {
