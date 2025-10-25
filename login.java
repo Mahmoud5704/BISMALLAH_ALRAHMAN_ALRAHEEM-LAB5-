@@ -124,11 +124,7 @@ public class login extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setFont(new java.awt.Font("Blackadder ITC", 0, 10)); // NOI18N
         setForeground(java.awt.Color.white);
-        addContainerListener(new java.awt.event.ContainerAdapter() {
-            public void componentAdded(java.awt.event.ContainerEvent evt) {
-                formComponentAdded(evt);
-            }
-        });
+    
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setToolTipText("LOGIN PAGE");
@@ -138,11 +134,7 @@ public class login extends javax.swing.JFrame {
         jTextField2.setText("LOGIN PAGE");
         jTextField2.setSelectionColor(new java.awt.Color(255, 255, 255));
         jTextField2.setVerifyInputWhenFocusTarget(false);
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
+  
 
         jLabel2.setFont(new java.awt.Font("Rage Italic", 1, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -188,12 +180,6 @@ public class login extends javax.swing.JFrame {
                 jButton3MouseClicked(evt);
             }
         });
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
         jTextField1.setForeground(new java.awt.Color(204, 204, 204));
         jTextField1.setText("username ");
         jTextField1.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(51, 51, 51)));
@@ -209,11 +195,7 @@ public class login extends javax.swing.JFrame {
                 jTextField1FocusLost(evt);
             }
         });
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
+
 
         jTextField3.setForeground(new java.awt.Color(204, 204, 204));
         jTextField3.setText("password");
@@ -228,11 +210,6 @@ public class login extends javax.swing.JFrame {
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 jTextField3FocusLost(evt);
-            }
-        });
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
             }
         });
 
