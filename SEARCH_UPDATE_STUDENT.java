@@ -119,19 +119,10 @@ public class SEARCH_UPDATE_STUDENT extends javax.swing.JPanel {
         jTextField2.setForeground(new java.awt.Color(255, 255, 255));
         jTextField2.setCaretColor(new java.awt.Color(255, 255, 255));
         jTextField2.setSelectionColor(new java.awt.Color(255, 255, 255));
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
-   
+ 
 
         jButton1.setText("UPDATE");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+   
 
         jButton2.setText("BACK");
     
@@ -185,17 +176,6 @@ public class SEARCH_UPDATE_STUDENT extends javax.swing.JPanel {
         edittable.setToolTipText("MMM");
         edittable.setGridColor(new java.awt.Color(255, 255, 255));
         edittable.setShowGrid(true);
-        edittable.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-        });
-        edittable.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                edittableMouseClicked(evt);
-            }
-        });
         edittable.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 edittableKeyPressed(evt);
