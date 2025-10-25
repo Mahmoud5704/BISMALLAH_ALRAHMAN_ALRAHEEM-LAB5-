@@ -10,7 +10,7 @@ public class MAIN extends javax.swing.JFrame {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // don't change anything here!!!!!
     private void initComponents() {
 
         jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
@@ -154,36 +154,28 @@ public class MAIN extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_formComponentAdded
-        // TODO add your handling code here:
-    }//GEN-LAST:event_formComponentAdded
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {
         new ADDSTUDENT().setVisible(true);
-        this.dispose();        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+        this.dispose();      
+    }
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
         new VIEWSTUDENT().setVisible(true);
-        this.dispose();           // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+        this.dispose();          
+    }
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {
         new SEARCH_UPDATE_STUDENT().setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {
         new DELETESTUDENT().setVisible(true);
-        this.dispose();           // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
+        this.dispose();           
+    }
 
-    private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
-        //  SEARCH_UPDATE_STUDENT ss =new SEARCH_UPDATE_STUDENT();
-        // MAIN.this.add(ss,BorderLayout.NORTH);
-        //ss.setVisible(true);
-        //this.dispose();    
-    }//GEN-LAST:event_jButton7MouseClicked
+   
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
