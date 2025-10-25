@@ -26,7 +26,7 @@ public class SEARCH_UPDATE_STUDENT extends javax.swing.JPanel {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // don't edit anything here
     private void initComponents() {
 
         jDialog1 = new javax.swing.JDialog();
@@ -284,53 +284,32 @@ public class SEARCH_UPDATE_STUDENT extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jTextField2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyReleased
+    private void jTextField2KeyReleased(java.awt.event.KeyEvent evt) {
         // TODO add your handling code here:
         TableRowSorter sort = (TableRowSorter) edittable.getRowSorter();
 
         if (jTextField2.getText().trim().length() == 0) {
             sort.setRowFilter(null);
         } else {
-            sort.setRowFilter(RowFilter.regexFilter("(?i)" + jTextField2.getText())); // Case-insensitive search
+            sort.setRowFilter(RowFilter.regexFilter("(?i)" + jTextField2.getText())); 
         }
-    }//GEN-LAST:event_jTextField2KeyReleased
+    }
 
 
-    private void edittableAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_edittableAncestorAdded
-        // TODO add your handling code here:
-    }//GEN-LAST:event_edittableAncestorAdded
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
         new MAIN().setVisible(true);
         frame.dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }
 
-    private void edittableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_edittableMouseClicked
-        /* if (evt.getClickCount() == 1) {
-        int row = edittable.getSelectedRow();
-        if (row != -1) {
-            EDIT editDialog = new EDIT(frame, true, row);
-            editDialog.openEditDialogForRow(frame, row);
-        }
-        }*/
-    }//GEN-LAST:event_edittableMouseClicked
-
-    private void edittableKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edittableKeyPressed
+    private void edittableKeyPressed(java.awt.event.KeyEvent evt) {
         if(evt.getKeyCode()==java.awt.event.KeyEvent.VK_ENTER){
         int row = edittable.getSelectedRow();
         if (row != -1) {
             EDIT editDialog = new EDIT(frame, true);
             editDialog.openEditDialogForRow(frame, row,edittable);
             }
-    }//GEN-LAST:event_edittableKeyPressed
+    }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
