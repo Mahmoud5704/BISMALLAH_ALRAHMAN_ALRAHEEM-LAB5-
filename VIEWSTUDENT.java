@@ -44,20 +44,12 @@ private JFrame frame;
         jTextField1.setText("VIEW STUDENTS");
         jTextField1.setOpaque(true);
         jTextField1.setSelectedTextColor(new java.awt.Color(0, 0, 0));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
+    
 
         jButton1.setBackground(new java.awt.Color(0, 51, 51));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("ADD");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+       
 
         jButton2.setBackground(new java.awt.Color(0, 51, 51));
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
