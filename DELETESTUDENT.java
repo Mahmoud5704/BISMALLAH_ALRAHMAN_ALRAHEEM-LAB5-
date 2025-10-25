@@ -11,7 +11,6 @@ private JFrame frame;
     public void setVisible(boolean f) {
         if (f) {
             frame = new JFrame("Delete Student");
-            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             frame.getContentPane().add(this);
             frame.pack();
             frame.setLocationRelativeTo(null);
@@ -20,7 +19,7 @@ private JFrame frame;
 
     }
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // do not change anything here
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
@@ -176,19 +175,10 @@ private JFrame frame;
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
         new MAIN().setVisible(true);
-        frame.dispose();        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void DELETE_TABLEAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_DELETE_TABLEAncestorAdded
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DELETE_TABLEAncestorAdded
-
+        frame.dispose();      
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable DELETE_TABLE;
