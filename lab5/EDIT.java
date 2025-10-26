@@ -1,35 +1,47 @@
 package lab5;
 
 import javax.swing.JOptionPane;
+import validation.Validation;
+import backend.StudentOperations;
+import backend.StudentModule;
+import java.util.List;
 
 public class EDIT extends javax.swing.JDialog {
 
     javax.swing.JTable edittable;
     private int row;
-
+    private static int originalID;
     public EDIT(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
+        IDVerifierObj = Validation.getIDVerifier(IDField);
+        IDField.setInputVerifier(IDVerifierObj);
+        nameVerifierObj = Validation.getNameVerifier(nameField);
+        nameField.setInputVerifier(nameVerifierObj);
+        GPAVerifierObj = Validation.getGPAVerifier(gradeField);
+        gradeField.setInputVerifier(GPAVerifierObj);
+        departmentVerifierObj = Validation.getDepartmentVerifier(DepartmentField);
+        DepartmentField.setInputVerifier(departmentVerifierObj);
     }
 
     public void setFields(String a, String b, String c, String d, String e, String f) {
-        jTextField1.setText(a);
-        jTextField2.setText(b);//id
-        jTextField3.setText(c);
-        jTextField4.setText(d);//grade
-        jTextField5.setSelectedItem(e);
-        jTextField6.setSelectedItem(f);
+        nameField.setText(a);
+        IDField.setText(b);//id
+        DepartmentField.setText(c);
+        gradeField.setText(d);//grade
+        ageBox.setSelectedItem(e);
+        genderBox.setSelectedItem(f);
     }
 
     public String[] getUpdatedData() {
         return new String[]{
-            jTextField1.getText(),
-            jTextField2.getText(),
-            jTextField3.getText(),
-            jTextField4.getText(),
-            jTextField5.getSelectedItem().toString(),
-            jTextField6.getSelectedItem().toString()};
+            nameField.getText(),
+            IDField.getText(),
+            DepartmentField.getText(),
+            gradeField.getText(),
+            ageBox.getSelectedItem().toString(),
+            genderBox.getSelectedItem().toString()};
     }
 
     public void openEditDialogForRow(java.awt.Frame parent, int row, javax.swing.JTable edittable) {
@@ -39,7 +51,7 @@ public class EDIT extends javax.swing.JDialog {
         String col4 = (edittable.getValueAt(row, 3) == null) ? "" : edittable.getValueAt(row, 3).toString();
         String col5 = (edittable.getValueAt(row, 4) == null) ? "" : edittable.getValueAt(row, 4).toString();
         String col6 = (edittable.getValueAt(row, 5) == null) ? "" : edittable.getValueAt(row, 5).toString();
-
+        this.originalID = Integer.parseInt(col2);
         EDIT dialog = new EDIT(parent, true);
         dialog.row = row;
         dialog.edittable = edittable;
@@ -52,20 +64,20 @@ public class EDIT extends javax.swing.JDialog {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        nameField = new javax.swing.JTextField();
+        saveButton = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jTextField5 = new javax.swing.JComboBox<>();
-        jTextField6 = new javax.swing.JComboBox<>();
+        ageBox = new javax.swing.JComboBox<>();
+        genderBox = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        IDField = new javax.swing.JTextField();
+        DepartmentField = new javax.swing.JTextField();
+        gradeField = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -73,20 +85,20 @@ public class EDIT extends javax.swing.JDialog {
         jPanel1.setBackground(new java.awt.Color(0, 0, 51));
         jPanel1.setToolTipText("ADD STUDENT");
 
-        jTextField1.setBackground(new java.awt.Color(0, 0, 102));
-        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField1.setCaretColor(new java.awt.Color(255, 255, 255));
-        jTextField1.setSelectionColor(new java.awt.Color(255, 255, 255));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        nameField.setBackground(new java.awt.Color(0, 0, 102));
+        nameField.setForeground(new java.awt.Color(255, 255, 255));
+        nameField.setCaretColor(new java.awt.Color(255, 255, 255));
+        nameField.setSelectionColor(new java.awt.Color(255, 255, 255));
+        nameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                nameFieldActionPerformed(evt);
             }
         });
 
-        jButton1.setText("save");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        saveButton.setText("save");
+        saveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                saveButtonActionPerformed(evt);
             }
         });
 
@@ -97,22 +109,22 @@ public class EDIT extends javax.swing.JDialog {
             }
         });
 
-        jTextField5.setBackground(new java.awt.Color(0, 0, 102));
-        jTextField5.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField5.setMaximumRowCount(7);
-        jTextField5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27" }));
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        ageBox.setBackground(new java.awt.Color(0, 0, 102));
+        ageBox.setForeground(new java.awt.Color(255, 255, 255));
+        ageBox.setMaximumRowCount(7);
+        ageBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35" }));
+        ageBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                ageBoxActionPerformed(evt);
             }
         });
 
-        jTextField6.setBackground(new java.awt.Color(0, 0, 102));
-        jTextField6.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+        genderBox.setBackground(new java.awt.Color(0, 0, 102));
+        genderBox.setForeground(new java.awt.Color(255, 255, 255));
+        genderBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
+        genderBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+                genderBoxActionPerformed(evt);
             }
         });
 
@@ -140,33 +152,33 @@ public class EDIT extends javax.swing.JDialog {
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("GENDER");
 
-        jTextField2.setBackground(new java.awt.Color(0, 0, 102));
-        jTextField2.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField2.setCaretColor(new java.awt.Color(255, 255, 255));
-        jTextField2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        IDField.setBackground(new java.awt.Color(0, 0, 102));
+        IDField.setForeground(new java.awt.Color(255, 255, 255));
+        IDField.setCaretColor(new java.awt.Color(255, 255, 255));
+        IDField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        IDField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                IDFieldActionPerformed(evt);
             }
         });
 
-        jTextField3.setBackground(new java.awt.Color(0, 0, 102));
-        jTextField3.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField3.setCaretColor(new java.awt.Color(255, 255, 255));
-        jTextField3.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        DepartmentField.setBackground(new java.awt.Color(0, 0, 102));
+        DepartmentField.setForeground(new java.awt.Color(255, 255, 255));
+        DepartmentField.setCaretColor(new java.awt.Color(255, 255, 255));
+        DepartmentField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        DepartmentField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                DepartmentFieldActionPerformed(evt);
             }
         });
 
-        jTextField4.setBackground(new java.awt.Color(0, 0, 102));
-        jTextField4.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField4.setCaretColor(new java.awt.Color(255, 255, 255));
-        jTextField4.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        gradeField.setBackground(new java.awt.Color(0, 0, 102));
+        gradeField.setForeground(new java.awt.Color(255, 255, 255));
+        gradeField.setCaretColor(new java.awt.Color(255, 255, 255));
+        gradeField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        gradeField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                gradeFieldActionPerformed(evt);
             }
         });
 
@@ -195,24 +207,24 @@ public class EDIT extends javax.swing.JDialog {
                                     .addComponent(jLabel12)
                                     .addComponent(jLabel13)
                                     .addComponent(jLabel14)
-                                    .addComponent(jButton1))
+                                    .addComponent(saveButton))
                                 .addGap(16, 16, 16))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(jLabel10)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(genderBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(ageBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGap(168, 168, 168))
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(IDField, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(DepartmentField, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(1, 1, 1)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(gradeField, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -222,31 +234,31 @@ public class EDIT extends javax.swing.JDialog {
                 .addComponent(jLabel15)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(IDField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(DepartmentField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(16, 16, 16)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(gradeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ageBox, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(genderBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14))
                 .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(saveButton)
                     .addComponent(jButton2))
                 .addGap(36, 36, 36))
         );
@@ -275,44 +287,60 @@ public class EDIT extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void nameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_nameFieldActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-    String[] updatedData = getUpdatedData();
-    for (int i = 0; i < updatedData.length; i++) {
-        if (updatedData[i] == null) updatedData[i] = "";
-        edittable.setValueAt(updatedData[i], row, i);
-    }
-    JOptionPane.showMessageDialog(this, "Data saved successfully!");
-    dispose(); 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
+        boolean condition = IDVerifierObj.getIsValid() && nameVerifierObj.getIsValid() && GPAVerifierObj.getIsValid() && departmentVerifierObj.getIsValid(); //all must be valid
+        if(!condition)
+            return;
+        String[] updatedData = getUpdatedData();
+        StudentOperations operator = new StudentOperations();
+        String name = nameField.getText();
+        String ID = IDField.getText();
+        String department = DepartmentField.getText();
+        String grade = gradeField.getText();
+        String age = ageBox.getSelectedItem().toString();
+        String gender = genderBox.getSelectedItem().toString();
+        StudentModule student = new StudentModule(Integer.parseInt(ID), name, Integer.parseInt(age), gender, department, Double.parseDouble(grade));
+        boolean success = operator.UpdateStudent(originalID, student);
+        for (int i = 0; i < updatedData.length; i++) {
+            if (updatedData[i] == null) updatedData[i] = "";
+            edittable.setValueAt(updatedData[i], row, i);
+        }
+        String message;
+        if(success)
+            message = "Data saved successfully!";
+        else
+            message = "Error: student not found or another student has the entered ID";
+        JOptionPane.showMessageDialog(this, message);
+        dispose(); 
+    }//GEN-LAST:event_saveButtonActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void ageBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ageBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_ageBoxActionPerformed
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+    private void genderBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genderBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    }//GEN-LAST:event_genderBoxActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void IDFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_IDFieldActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void DepartmentFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DepartmentFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_DepartmentFieldActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void gradeFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gradeFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_gradeFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -351,7 +379,11 @@ public class EDIT extends javax.swing.JDialog {
         });
     }*/
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JTextField DepartmentField;
+    private javax.swing.JTextField IDField;
+    private javax.swing.JComboBox<String> ageBox;
+    private javax.swing.JComboBox<String> genderBox;
+    private javax.swing.JTextField gradeField;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -361,11 +393,11 @@ public class EDIT extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JComboBox<String> jTextField5;
-    private javax.swing.JComboBox<String> jTextField6;
+    private javax.swing.JTextField nameField;
+    private javax.swing.JButton saveButton;
     // End of variables declaration//GEN-END:variables
+    private Validation.IDVerifier IDVerifierObj;
+    private Validation.nameVerifier nameVerifierObj;
+    private Validation.GPAVerifier GPAVerifierObj;
+    private Validation.departmentVerifier departmentVerifierObj;
 }

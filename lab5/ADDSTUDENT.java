@@ -95,11 +95,10 @@ public class ADDSTUDENT extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 102));
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Net Beans\\Assignments\\lab5\\src\\ADD.JPG (2).jpg")); // NOI18N
-        jLabel1.setText("jLabel1");
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lab5/ADD.JPG (2).jpg"))); // NOI18N
         jLabel1.setMaximumSize(new java.awt.Dimension(2147483647, 2147483647));
         jLabel1.setMinimumSize(new java.awt.Dimension(80, 29));
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 350));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 380));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 51));
         jPanel1.setToolTipText("ADD STUDENT");
@@ -251,14 +250,14 @@ public class ADDSTUDENT extends javax.swing.JPanel {
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(genderBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(ageBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(204, 204, 204))
+                            .addGap(207, 207, 207))
                         .addComponent(IDField, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(DepartmentField, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton2))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(1, 1, 1)
                         .addComponent(gradeField, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel15)
@@ -323,7 +322,13 @@ public class ADDSTUDENT extends javax.swing.JPanel {
         String gender = (String) genderBox.getSelectedItem();
         StudentOperations operator = new StudentOperations();
         StudentModule student = new StudentModule(Integer.parseInt(ID), name, Integer.parseInt(age), gender, department, Double.parseDouble(grade));
-        operator.AddStudent(student);
+        boolean success = operator.AddStudent(student);
+        String message;
+        if(success)
+            message = "Student added successfully!";
+        else
+            message = "error adding student... make sure another student doesn't have this ID";
+        javax.swing.JOptionPane.showMessageDialog(frame, message);
     }//GEN-LAST:event_AddActionPerformed
 
     private void ageBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ageBoxActionPerformed

@@ -184,7 +184,6 @@
                   </Table>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
-                <Property name="fillsViewportHeight" type="boolean" value="true"/>
                 <Property name="gridColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
@@ -198,7 +197,7 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="D:\Net Beans\Assignments\lab5\src\VIEW.jpg"/>
+          <Image iconType="3" name="/lab5/VIEW.jpg"/>
         </Property>
         <Property name="text" type="java.lang.String" value="jLabel1"/>
       </Properties>

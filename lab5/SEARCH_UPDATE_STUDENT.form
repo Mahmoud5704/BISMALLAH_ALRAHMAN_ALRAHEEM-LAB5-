@@ -147,7 +147,7 @@
                           <EmptySpace pref="39" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="updateButton" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Component id="jButton2" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -180,7 +180,7 @@
                   <Component id="EDIT_TABLE" min="-2" pref="190" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="updateButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="14" max="32767" attributes="0"/>
@@ -210,12 +210,12 @@
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField2KeyReleased"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="updateButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="UPDATE"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateButtonActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButton2">
@@ -282,7 +282,7 @@
                       <Data value="null"/>
                     </Column>
                     <Column editable="false" title="ID" type="java.lang.String">
-                      <Data value="1322"/>
+                      <Data value="12346"/>
                       <Data value="43244"/>
                       <Data value="null"/>
                       <Data value="null"/>
@@ -388,7 +388,7 @@
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="D:\Net Beans\Assignments\lab5\src\SEARCH.JPG.jpg"/>
+              <Image iconType="3" name="/lab5/SEARCH.JPG.jpg"/>
             </Property>
             <Property name="text" type="java.lang.String" value="jLabel1"/>
           </Properties>

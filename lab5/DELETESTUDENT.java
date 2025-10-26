@@ -2,6 +2,8 @@ package lab5;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import backend.StudentModule;
+import backend.StudentOperations;
 public class DELETESTUDENT extends javax.swing.JPanel {
 private JFrame frame;
 
@@ -29,7 +31,7 @@ private JFrame frame;
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        deleteButton = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -54,10 +56,10 @@ private JFrame frame;
         jPanel1.setBackground(new java.awt.Color(0, 0, 51));
         jPanel1.setToolTipText("ADD STUDENT");
 
-        jButton1.setText("DELETE");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        deleteButton.setText("DELETE");
+        deleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                deleteButtonActionPerformed(evt);
             }
         });
 
@@ -79,8 +81,8 @@ private JFrame frame;
         DELETE_TABLE.setForeground(new java.awt.Color(255, 255, 255));
         DELETE_TABLE.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"mahmoud abdelmonem ahmed mmm", null, "kijuhyjgf", null, null, "male"},
-                {"ahmed alshemy mohamed", null, "kkujyhnb", null, null, "male"},
+                {"mahmoud abdelmonem ahmed mmm", "12345", "kijuhyjgf", null, null, "male"},
+                {"ahmed alshemy mohamed", "12346", "kkujyhnb", null, null, "male"},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -108,7 +110,6 @@ private JFrame frame;
             }
         });
         DELETE_TABLE.setToolTipText("MMM");
-        DELETE_TABLE.setFillsViewportHeight(true);
         DELETE_TABLE.setGridColor(new java.awt.Color(255, 255, 255));
         DELETE_TABLE.setShowGrid(true);
         DELETE_TABLE.addAncestorListener(new javax.swing.event.AncestorListener() {
@@ -132,7 +133,7 @@ private JFrame frame;
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(jButton1)
+                .addComponent(deleteButton)
                 .addGap(308, 308, 308)
                 .addComponent(jButton2)
                 .addContainerGap(28, Short.MAX_VALUE))
@@ -151,11 +152,11 @@ private JFrame frame;
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
-                    .addComponent(jButton1))
+                    .addComponent(deleteButton))
                 .addGap(17, 17, 17))
         );
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("D:\\Net Beans\\Assignments\\lab5\\src\\DELETE.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lab5/DELETE.png"))); // NOI18N
         jLabel2.setText("jLabel1");
         jLabel2.setPreferredSize(new java.awt.Dimension(342, 336));
 
@@ -183,9 +184,10 @@ private JFrame frame;
         frame.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
     DefaultTableModel model=(DefaultTableModel) DELETE_TABLE.getModel();
     int row =DELETE_TABLE.getSelectedRow();
+    int targetID = Integer.parseInt(DELETE_TABLE.getValueAt(row, 1).toString());
     if (row >=0) { 
         int confirm = JOptionPane.showConfirmDialog(
             this,
@@ -195,13 +197,20 @@ private JFrame frame;
         );
         
         if (confirm == JOptionPane.YES_OPTION) {
+            StudentOperations operator = new StudentOperations();
+            boolean success = operator.DeleteStudent(targetID);
             model.removeRow(row);
-            JOptionPane.showMessageDialog(this, "Row deleted successfully!");
+            String message;
+            if(success)
+                message = "student removed successfully!";
+            else
+                message = "error removing student :(";
+            JOptionPane.showMessageDialog(this, message);
         }
     } else {
         JOptionPane.showMessageDialog(this,"Please select a row to delete first.");
     }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void DELETE_TABLEAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_DELETE_TABLEAncestorAdded
         // TODO add your handling code here:
@@ -210,7 +219,7 @@ private JFrame frame;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable DELETE_TABLE;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton deleteButton;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;

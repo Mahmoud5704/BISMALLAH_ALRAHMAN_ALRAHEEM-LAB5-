@@ -1,3 +1,14 @@
+
+package lab5;
+
+import javax.swing.JFrame;
+
+public class VIEWSTUDENT extends javax.swing.JPanel {
+private JFrame frame;
+    public VIEWSTUDENT() {
+        initComponents();
+    }
+          @Override
 package lab5;
 
 import javax.swing.JFrame;
@@ -39,6 +50,7 @@ public class VIEWSTUDENT extends javax.swing.JPanel {
         }
 
     }
+
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -167,7 +179,7 @@ public class VIEWSTUDENT extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Net Beans\\Assignments\\lab5\\src\\VIEW.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lab5/VIEW.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

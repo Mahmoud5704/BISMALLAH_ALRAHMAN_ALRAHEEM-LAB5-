@@ -20,10 +20,17 @@ public class StudentOperations
                students = new ArrayList<>();
     }
     
-    public void AddStudent(StudentModule s)
+    public boolean AddStudent(StudentModule s)
     {
+        int ID = s.getId();
+        for(int i = 0; i < students.size(); i++){
+            if(students.get(i).getId() == ID){
+                return false;
+            }
+        }
         students.add(s);
         filedeal.addtofile(students, FILE_NAME);
+        return true;
     }
     
     public List<StudentModule> ViewStudents()
@@ -31,32 +38,32 @@ public class StudentOperations
         return students;
     }
     
-    public int UpdateStudent(StudentModule s)
+    public boolean UpdateStudent(int originalID, StudentModule s)
     {
         for(int i=0 ; i<students.size();i++)
         {
-            if(students.get(i).getId()==s.getId())
+            if(students.get(i).getId() == originalID)
             {
                 students.set(i, s);
                 filedeal.addtofile(students, FILE_NAME);
-                return 1;
+                return true;
             }
         }
-        return 0;
+        return false;
     }
     
-    public int DeleteStudent(StudentModule s)
+    public boolean DeleteStudent(int ID)
     {
         for(int i=0 ; i<students.size();i++)
         {
-            if(students.get(i).getId()==s.getId())
+            if(students.get(i).getId()== ID)
             {
                 students.remove(i);
                 filedeal.addtofile(students, FILE_NAME);
-                return 1;
+                return true;
             }
         }
-        return 0;
+        return false;
     }
     
     public StudentModule SearchStudentByID(int id)
@@ -82,8 +89,4 @@ public class StudentOperations
         }
         return null;
     }    
-
-    /*public List<StudentModule> viewStudents() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }*/
 }
