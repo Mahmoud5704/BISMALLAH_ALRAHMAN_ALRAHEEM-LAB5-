@@ -9,6 +9,36 @@ private JFrame frame;
         initComponents();
     }
           @Override
+package lab5;
+
+import javax.swing.JFrame;
+import backend.StudentModule;
+import backend.StudentOperations;
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.util.List;
+import backend.TableLoader;
+
+
+public class VIEWSTUDENT extends javax.swing.JPanel {
+
+    private JFrame frame;
+    private JTable studentTable;
+    private DefaultTableModel tableModel;
+    private StudentOperations studentOperations;
+
+    public VIEWSTUDENT() {
+    studentOperations = new StudentOperations();
+    initComponents();
+    tableModel = (DefaultTableModel) VIEW_TABLE.getModel();
+    loadStudentsIntoTable();
+}
+
+    private void loadStudentsIntoTable() {
+    TableLoader.loadStudents(tableModel, studentOperations.ViewStudents());
+    }
+
+    @Override
     public void setVisible(boolean f) {
         if (f) {
             frame = new JFrame("View Student");
@@ -111,6 +141,7 @@ private JFrame frame;
             }
         });
         VIEW_TABLE.setToolTipText("");
+        VIEW_TABLE.setFillsViewportHeight(true);
         VIEW_TABLE.setGridColor(new java.awt.Color(255, 255, 255));
         VIEW_TABLE.setShowGrid(true);
         jScrollPane1.setViewportView(VIEW_TABLE);
