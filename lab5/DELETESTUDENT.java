@@ -2,6 +2,8 @@ package lab5;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import backend.StudentModule;
+import backend.StudentOperations;
 public class DELETESTUDENT extends javax.swing.JPanel {
 private JFrame frame;
 
@@ -79,8 +81,8 @@ private JFrame frame;
         DELETE_TABLE.setForeground(new java.awt.Color(255, 255, 255));
         DELETE_TABLE.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"mahmoud abdelmonem ahmed mmm", null, "kijuhyjgf", null, null, "male"},
-                {"ahmed alshemy mohamed", null, "kkujyhnb", null, null, "male"},
+                {"mahmoud abdelmonem ahmed mmm", "12345", "kijuhyjgf", null, null, "male"},
+                {"ahmed alshemy mohamed", "12346", "kkujyhnb", null, null, "male"},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -185,6 +187,7 @@ private JFrame frame;
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
     DefaultTableModel model=(DefaultTableModel) DELETE_TABLE.getModel();
     int row =DELETE_TABLE.getSelectedRow();
+    int targetID = Integer.parseInt(DELETE_TABLE.getValueAt(row, 1).toString());
     if (row >=0) { 
         int confirm = JOptionPane.showConfirmDialog(
             this,
@@ -194,8 +197,15 @@ private JFrame frame;
         );
         
         if (confirm == JOptionPane.YES_OPTION) {
+            StudentOperations operator = new StudentOperations();
+            boolean success = operator.DeleteStudent(targetID);
             model.removeRow(row);
-            JOptionPane.showMessageDialog(this, "Row deleted successfully!");
+            String message;
+            if(success)
+                message = "student removed successfully!";
+            else
+                message = "error removing student :(";
+            JOptionPane.showMessageDialog(this, message);
         }
     } else {
         JOptionPane.showMessageDialog(this,"Please select a row to delete first.");

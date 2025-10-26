@@ -182,7 +182,23 @@
                       <Data value="null"/>
                       <Data value="null"/>
                     </Column>
-                    <Column editable="true" title="ID" type="java.lang.String"/>
+                    <Column editable="true" title="ID" type="java.lang.String">
+                      <Data value="12345"/>
+                      <Data value="12346"/>
+                      <Data value="null"/>
+                      <Data value="null"/>
+                      <Data value="null"/>
+                      <Data value="null"/>
+                      <Data value="null"/>
+                      <Data value="null"/>
+                      <Data value="null"/>
+                      <Data value="null"/>
+                      <Data value="null"/>
+                      <Data value="null"/>
+                      <Data value="null"/>
+                      <Data value="null"/>
+                      <Data value="null"/>
+                    </Column>
                     <Column editable="true" title="DEPARTMENT" type="java.lang.String">
                       <Data value="kijuhyjgf"/>
                       <Data value="kkujyhnb"/>

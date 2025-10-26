@@ -155,7 +155,7 @@ public class SEARCH_UPDATE_STUDENT extends javax.swing.JPanel {
         edittable.setForeground(new java.awt.Color(255, 255, 255));
         edittable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"mahmoud abdelmonem ahmed mmm", "1322", "1341jklk", "132", "21312", "male"},
+                {"mahmoud abdelmonem ahmed mmm", "12346", "1341jklk", "132", "21312", "male"},
                 {"ahmed alshemy mohamed", "43244", null, "32132", "23123", "male"},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},

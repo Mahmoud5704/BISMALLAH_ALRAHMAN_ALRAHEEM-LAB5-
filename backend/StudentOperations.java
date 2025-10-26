@@ -38,11 +38,11 @@ public class StudentOperations
         return students;
     }
     
-    public boolean UpdateStudent(StudentModule s)
+    public boolean UpdateStudent(int originalID, StudentModule s)
     {
         for(int i=0 ; i<students.size();i++)
         {
-            if(students.get(i).getId()==s.getId())
+            if(students.get(i).getId() == originalID)
             {
                 students.set(i, s);
                 filedeal.addtofile(students, FILE_NAME);
@@ -52,18 +52,18 @@ public class StudentOperations
         return false;
     }
     
-    public int DeleteStudent(StudentModule s)
+    public boolean DeleteStudent(int ID)
     {
         for(int i=0 ; i<students.size();i++)
         {
-            if(students.get(i).getId()==s.getId())
+            if(students.get(i).getId()== ID)
             {
                 students.remove(i);
                 filedeal.addtofile(students, FILE_NAME);
-                return 1;
+                return true;
             }
         }
-        return 0;
+        return false;
     }
     
     public StudentModule SearchStudentByID(int id)
