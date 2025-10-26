@@ -3,7 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
-package javaapplication11;
+package backend;
+import validation.Validation;
 
 import java.io.*;
 import java.util.*;
@@ -52,7 +53,7 @@ public class StudentModule
     //setters
     public int setName(String name) 
     {
-        if(Validation.Name)
+        if(Validation.verifyName(name))
         {
                  this.FullName= name;
                  return 1;
@@ -62,7 +63,7 @@ public class StudentModule
     }
     public int setAge(int age) 
     {
-        if(Validation.Age)
+        if(Validation.verifyAge(age))
         {
                  this.Age= age;
                  return 1;
@@ -72,7 +73,7 @@ public class StudentModule
     }
     public int setGender(String gender) 
     {
-        if(Validation.Gender)
+        if(gender == "male" || gender == "female")
         {
                  this.Gender = gender;
                  return 1;
@@ -82,7 +83,7 @@ public class StudentModule
     }
     public int setDepartment(String department) 
     {
-         if(Validation.Department)
+         if(Validation.verifyDepartment(department))
         {
                  this.Department = department;
                  return 1;
@@ -90,11 +91,11 @@ public class StudentModule
         else
             return 0;
     }
-    public int setGpa(double gpa) 
+    public int setGpa(String gpa) 
     {
-        if(Validation.GPA)
+        if(Validation.verifyGPA(gpa))
         {
-                 this.GBA= gpa;
+                 this.GBA= Double.parseDouble(gpa);
                  return 1;
         }
         else
