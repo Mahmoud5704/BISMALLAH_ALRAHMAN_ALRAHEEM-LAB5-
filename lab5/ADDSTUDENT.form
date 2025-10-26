@@ -79,7 +79,9 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="66" green="0" red="0" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="jLabel1"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/lab5/ADD.JPG (2).jpg"/>
+        </Property>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[2147483647, 2147483647]"/>
         </Property>
@@ -89,7 +91,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="0" y="0" width="300" height="350"/>
+          <AbsoluteConstraints x="0" y="0" width="300" height="380"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -136,7 +138,7 @@
                                   <Component id="genderBox" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="ageBox" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="204" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="207" max="-2" attributes="0"/>
                           </Group>
                           <Component id="IDField" alignment="1" min="-2" pref="241" max="-2" attributes="0"/>
                           <Component id="DepartmentField" alignment="1" min="-2" pref="241" max="-2" attributes="0"/>
@@ -147,7 +149,7 @@
                           <Component id="gradeField" min="-2" pref="241" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="32" max="32767" attributes="0"/>
+                  <EmptySpace pref="29" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>

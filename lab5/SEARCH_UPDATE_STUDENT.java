@@ -38,7 +38,7 @@ public class SEARCH_UPDATE_STUDENT extends javax.swing.JPanel {
         jDialog6 = new javax.swing.JDialog();
         jPanel1 = new javax.swing.JPanel();
         jTextField2 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        updateButton = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         EDIT_TABLE = new javax.swing.JScrollPane();
@@ -130,10 +130,10 @@ public class SEARCH_UPDATE_STUDENT extends javax.swing.JPanel {
             }
         });
 
-        jButton1.setText("UPDATE");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        updateButton.setText("UPDATE");
+        updateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                updateButtonActionPerformed(evt);
             }
         });
 
@@ -214,7 +214,7 @@ public class SEARCH_UPDATE_STUDENT extends javax.swing.JPanel {
         });
         EDIT_TABLE.setViewportView(edittable);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\ELOott\\Documents\\SEARCH.JPG.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lab5/SEARCH.JPG.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
 
         jLabel11.setFont(new java.awt.Font("Stencil", 1, 36)); // NOI18N
@@ -237,7 +237,7 @@ public class SEARCH_UPDATE_STUDENT extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton1)
+                                .addComponent(updateButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton2))
                             .addComponent(EDIT_TABLE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -262,7 +262,7 @@ public class SEARCH_UPDATE_STUDENT extends javax.swing.JPanel {
                 .addComponent(EDIT_TABLE, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(updateButton)
                     .addComponent(jButton2))
                 .addContainerGap(14, Short.MAX_VALUE))
             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -286,9 +286,15 @@ public class SEARCH_UPDATE_STUDENT extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        int row = edittable.getSelectedRow();
+        if (row != -1) {
+            EDIT editDialog = new EDIT(frame, true);
+            editDialog.openEditDialogForRow(frame, row,edittable);
+            }
+        
+    }//GEN-LAST:event_updateButtonActionPerformed
 
     private void jTextField2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyReleased
         // TODO add your handling code here:
@@ -334,7 +340,6 @@ public class SEARCH_UPDATE_STUDENT extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JScrollPane EDIT_TABLE;
     public javax.swing.JTable edittable;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JDialog jDialog2;
@@ -348,5 +353,6 @@ public class SEARCH_UPDATE_STUDENT extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JButton updateButton;
     // End of variables declaration//GEN-END:variables
 }

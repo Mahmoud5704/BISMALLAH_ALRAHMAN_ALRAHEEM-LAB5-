@@ -20,10 +20,17 @@ public class StudentOperations
                students = new ArrayList<>();
     }
     
-    public void AddStudent(StudentModule s)
+    public boolean AddStudent(StudentModule s)
     {
+        int ID = s.getId();
+        for(int i = 0; i < students.size(); i++){
+            if(students.get(i).getId() == ID){
+                return false;
+            }
+        }
         students.add(s);
         filedeal.addtofile(students, FILE_NAME);
+        return true;
     }
     
     public List<StudentModule> ViewStudents()
@@ -31,7 +38,7 @@ public class StudentOperations
         return students;
     }
     
-    public int UpdateStudent(StudentModule s)
+    public boolean UpdateStudent(StudentModule s)
     {
         for(int i=0 ; i<students.size();i++)
         {
@@ -39,10 +46,10 @@ public class StudentOperations
             {
                 students.set(i, s);
                 filedeal.addtofile(students, FILE_NAME);
-                return 1;
+                return true;
             }
         }
-        return 0;
+        return false;
     }
     
     public int DeleteStudent(StudentModule s)
