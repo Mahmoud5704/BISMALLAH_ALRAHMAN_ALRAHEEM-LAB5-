@@ -1,16 +1,5 @@
 
 package lab5;
-
-import javax.swing.JFrame;
-
-public class VIEWSTUDENT extends javax.swing.JPanel {
-private JFrame frame;
-    public VIEWSTUDENT() {
-        initComponents();
-    }
-          @Override
-package lab5;
-
 import javax.swing.JFrame;
 import backend.StudentModule;
 import backend.StudentOperations;
