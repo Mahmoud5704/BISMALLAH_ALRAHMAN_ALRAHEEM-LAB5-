@@ -10,7 +10,7 @@ public class EDIT extends javax.swing.JDialog {
 
     javax.swing.JTable edittable;
     private int row;
-    private int originalID;
+    private static int originalID;
     public EDIT(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -304,7 +304,7 @@ public class EDIT extends javax.swing.JDialog {
         String age = ageBox.getSelectedItem().toString();
         String gender = genderBox.getSelectedItem().toString();
         StudentModule student = new StudentModule(Integer.parseInt(ID), name, Integer.parseInt(age), gender, department, Double.parseDouble(grade));
-        boolean success = operator.UpdateStudent(this.originalID, student);
+        boolean success = operator.UpdateStudent(originalID, student);
         for (int i = 0; i < updatedData.length; i++) {
             if (updatedData[i] == null) updatedData[i] = "";
             edittable.setValueAt(updatedData[i], row, i);

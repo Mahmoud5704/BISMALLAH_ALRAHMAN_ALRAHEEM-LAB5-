@@ -37,6 +37,7 @@ public class MAIN extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lab5/main.png"))); // NOI18N
         jLabel1.setText("jLabel1");
 
         jPanel2.setBackground(new java.awt.Color(102, 102, 102));
