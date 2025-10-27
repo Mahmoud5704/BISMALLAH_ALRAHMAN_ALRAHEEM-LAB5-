@@ -1,14 +1,17 @@
-package lab5;
+package gui;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import backend.StudentModule;
 import backend.StudentOperations;
+import backend.TableLoader;
 public class DELETESTUDENT extends javax.swing.JPanel {
 private JFrame frame;
 
     public DELETESTUDENT() {
-        initComponents();
+        initComponents();     
+        TableLoader.loadStudents((DefaultTableModel) DELETE_TABLE.getModel(), new StudentOperations().ViewStudents());
+
     }
 
       @Override
@@ -81,21 +84,7 @@ private JFrame frame;
         DELETE_TABLE.setForeground(new java.awt.Color(255, 255, 255));
         DELETE_TABLE.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"mahmoud abdelmonem ahmed mmm", "12345", "kijuhyjgf", null, null, "male"},
-                {"ahmed alshemy mohamed", "12346", "kkujyhnb", null, null, "male"},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
                 "NAME", "ID", "DEPARTMENT", "GRADE", "AGE", "GENDER"
@@ -110,6 +99,7 @@ private JFrame frame;
             }
         });
         DELETE_TABLE.setToolTipText("MMM");
+        DELETE_TABLE.setFillsViewportHeight(true);
         DELETE_TABLE.setGridColor(new java.awt.Color(255, 255, 255));
         DELETE_TABLE.setShowGrid(true);
         DELETE_TABLE.addAncestorListener(new javax.swing.event.AncestorListener() {
@@ -156,7 +146,7 @@ private JFrame frame;
                 .addGap(17, 17, 17))
         );
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lab5/DELETE.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\ELOott\\Documents\\NetBeansProjects\\GUII\\DELETE.png")); // NOI18N
         jLabel2.setText("jLabel1");
         jLabel2.setPreferredSize(new java.awt.Dimension(342, 336));
 
@@ -187,7 +177,7 @@ private JFrame frame;
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
     DefaultTableModel model=(DefaultTableModel) DELETE_TABLE.getModel();
     int row =DELETE_TABLE.getSelectedRow();
-    int targetID = Integer.parseInt(DELETE_TABLE.getValueAt(row, 1).toString());
+    int targetID = Integer.parseInt(DELETE_TABLE.getValueAt(row, 0).toString());
     if (row >=0) { 
         int confirm = JOptionPane.showConfirmDialog(
             this,

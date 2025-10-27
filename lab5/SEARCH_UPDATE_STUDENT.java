@@ -1,8 +1,11 @@
-package lab5;
+package gui;
 
+import backend.StudentOperations;
 import javax.swing.JFrame;
 import javax.swing.RowFilter;
 import javax.swing.table.TableRowSorter;
+import backend.TableLoader;
+import javax.swing.table.DefaultTableModel;
 
 public class SEARCH_UPDATE_STUDENT extends javax.swing.JPanel {
 
@@ -10,6 +13,8 @@ public class SEARCH_UPDATE_STUDENT extends javax.swing.JPanel {
 
     public SEARCH_UPDATE_STUDENT() {
         initComponents();
+        TableLoader.loadStudents((DefaultTableModel) edittable.getModel(), new StudentOperations().ViewStudents());
+
     }
 
     @Override
@@ -155,24 +160,10 @@ public class SEARCH_UPDATE_STUDENT extends javax.swing.JPanel {
         edittable.setForeground(new java.awt.Color(255, 255, 255));
         edittable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"mahmoud abdelmonem ahmed mmm", "12346", "1341jklk", "132", "21312", "male"},
-                {"ahmed alshemy mohamed", "43244", null, "32132", "23123", "male"},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
-                "NAME", "ID", "DEPARTMENT", "GRADE", "AGE", "GENDER"
+                "ID", "NAME", "DEPARTMENT", "GRADE", "AGE", "GENDER"
             }
         ) {
             Class[] types = new Class [] {
@@ -191,6 +182,7 @@ public class SEARCH_UPDATE_STUDENT extends javax.swing.JPanel {
             }
         });
         edittable.setToolTipText("MMM");
+        edittable.setFillsViewportHeight(true);
         edittable.setGridColor(new java.awt.Color(255, 255, 255));
         edittable.setShowGrid(true);
         edittable.addAncestorListener(new javax.swing.event.AncestorListener() {
@@ -214,7 +206,7 @@ public class SEARCH_UPDATE_STUDENT extends javax.swing.JPanel {
         });
         EDIT_TABLE.setViewportView(edittable);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lab5/SEARCH.JPG.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\ELOott\\Documents\\NetBeansProjects\\GUII\\SEARCH.JPG.jpg")); // NOI18N
         jLabel1.setText("jLabel1");
 
         jLabel11.setFont(new java.awt.Font("Stencil", 1, 36)); // NOI18N
@@ -291,20 +283,22 @@ public class SEARCH_UPDATE_STUDENT extends javax.swing.JPanel {
         int row = edittable.getSelectedRow();
         if (row != -1) {
             EDIT editDialog = new EDIT(frame, true);
-            editDialog.openEditDialogForRow(frame, row,edittable);
-            }
-        
+            editDialog.openEditDialogForRow(frame, row, edittable);
+        }
+
     }//GEN-LAST:event_updateButtonActionPerformed
 
     private void jTextField2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyReleased
-        // TODO add your handling code here:
-        TableRowSorter sort = (TableRowSorter) edittable.getRowSorter();
+        TableRowSorter sorter = (TableRowSorter) edittable.getRowSorter();
 
         if (jTextField2.getText().trim().length() == 0) {
-            sort.setRowFilter(null);
+            sorter.setRowFilter(null);
         } else {
-            sort.setRowFilter(RowFilter.regexFilter("(?i)" + jTextField2.getText())); // Case-insensitive search
+            RowFilter<Object, Object> rf = RowFilter.regexFilter("(?i)" + jTextField2.getText(), 0, 1);
+            sorter.setRowFilter(rf);
+
         }
+
     }//GEN-LAST:event_jTextField2KeyReleased
 
 
@@ -328,11 +322,11 @@ public class SEARCH_UPDATE_STUDENT extends javax.swing.JPanel {
     }//GEN-LAST:event_edittableMouseClicked
 
     private void edittableKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edittableKeyPressed
-        if(evt.getKeyCode()==java.awt.event.KeyEvent.VK_ENTER){
-        int row = edittable.getSelectedRow();
-        if (row != -1) {
-            EDIT editDialog = new EDIT(frame, true);
-            editDialog.openEditDialogForRow(frame, row,edittable);
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+            int row = edittable.getSelectedRow();
+            if (row != -1) {
+                EDIT editDialog = new EDIT(frame, true);
+                editDialog.openEditDialogForRow(frame, row, edittable);
             }
     }//GEN-LAST:event_edittableKeyPressed
     }
