@@ -47,7 +47,7 @@ public class StudentOperations
                 flag = true;
                 target = i;
             }
-            if(students.get(i).getId() == s.getId()){
+            if(students.get(i).getId() == s.getId() && originalID != s.getId()){
                 return false; //new ID already exists? return false
             }
         }

@@ -12,6 +12,12 @@ public class EDIT extends javax.swing.JDialog {
     javax.swing.JTable edittable;
     private int row;
     private static int originalID;
+    private static String iname;
+    private static String iID;
+    private static String idepartment;
+    private static String igrade;
+    private static String iage;
+    private static String igender;
     public EDIT(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -25,6 +31,7 @@ public class EDIT extends javax.swing.JDialog {
         gradeField.setInputVerifier(GPAVerifierObj);
         departmentVerifierObj = Validation.getDepartmentVerifier(DepartmentField);
         DepartmentField.setInputVerifier(departmentVerifierObj);
+        
     }
 
     public void setFields(String a, String b, String c, String d, String e, String f) {
@@ -54,6 +61,12 @@ public class EDIT extends javax.swing.JDialog {
         String col5 = (edittable.getValueAt(row, 4) == null) ? "" : edittable.getValueAt(row, 4).toString();
         String col6 = (edittable.getValueAt(row, 5) == null) ? "" : edittable.getValueAt(row, 5).toString();
         EDIT.originalID = Integer.parseInt(col1);
+        iname = col2;
+        iID = col1;
+        idepartment = col3;
+        igrade = col4;
+        iage = col5;
+        igender = col6;
         EDIT dialog = new EDIT(parent, true);
         dialog.row = row;
         dialog.edittable = edittable;
@@ -321,25 +334,25 @@ public class EDIT extends javax.swing.JDialog {
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         String tail = " field is incorrect \n";
         String error_message = "";
-        if(!IDVerifierObj.getIsValid())
-            error_message += "ID" + tail;
-        if(!nameVerifierObj.getIsValid())
-            error_message += "name" + tail;
-        if(!GPAVerifierObj.getIsValid())
-            error_message += "grade" + tail;
-        if(!departmentVerifierObj.getIsValid())
-            error_message += "department" + tail;
-        if(!error_message.equals("")){ //message not empty?
-            javax.swing.JOptionPane.showMessageDialog(this, error_message);
-            return;
-        };
-        StudentOperations operator = new StudentOperations();
         String name = nameField.getText();
         String ID = IDField.getText();
         String department = DepartmentField.getText();
         String grade = gradeField.getText();
         String age = ageBox.getSelectedItem().toString();
         String gender = genderBox.getSelectedItem().toString();
+        if(!IDVerifierObj.getIsValid() && !ID.equals(iID))
+            error_message += "ID" + tail;
+        if(!nameVerifierObj.getIsValid() && !name.equals(iname))
+            error_message += "name" + tail;
+        if(!GPAVerifierObj.getIsValid() && !grade.equals(igrade))
+            error_message += "grade" + tail;
+        if(!departmentVerifierObj.getIsValid() && !department.equals(idepartment))
+            error_message += "department" + tail;
+        if(!error_message.equals("")){ //message not empty?
+            javax.swing.JOptionPane.showMessageDialog(this, error_message);
+            return;
+        }
+        StudentOperations operator = new StudentOperations();
         StudentModule student = new StudentModule(Integer.parseInt(ID), name, Integer.parseInt(age), gender, department, Double.parseDouble(grade));
         boolean success = operator.UpdateStudent(originalID, student);
         String message;
