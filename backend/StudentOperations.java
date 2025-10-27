@@ -38,14 +38,23 @@ public class StudentOperations
     
     public boolean UpdateStudent(int originalID, StudentModule s)
     {
+        boolean flag = false;
+        int target = -1;
         for(int i=0 ; i<students.size();i++)
         {
             if(students.get(i).getId() == originalID)
             {
-                students.set(i, s);
-                filedeal.addtofile(students, FILE_NAME);
-                return true;
+                flag = true;
+                target = i;
             }
+            if(students.get(i).getId() == s.getId()){
+                return false; //new ID already exists? return false
+            }
+        }
+        if (flag){
+            students.set(target, s);
+            filedeal.addtofile(students, FILE_NAME);
+            return true;
         }
         return false;
     }

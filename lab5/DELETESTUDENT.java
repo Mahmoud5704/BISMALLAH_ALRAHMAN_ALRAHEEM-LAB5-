@@ -1,4 +1,4 @@
-package gui;
+package lab5;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -189,7 +189,7 @@ private JFrame frame;
         if (confirm == JOptionPane.YES_OPTION) {
             StudentOperations operator = new StudentOperations();
             boolean success = operator.DeleteStudent(targetID);
-            model.removeRow(row);
+            TableLoader.loadStudents((DefaultTableModel) DELETE_TABLE.getModel(), new StudentOperations().ViewStudents());
             String message;
             if(success)
                 message = "student removed successfully!";

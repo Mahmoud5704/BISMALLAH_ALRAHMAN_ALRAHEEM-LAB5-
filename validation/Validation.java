@@ -41,7 +41,8 @@ public class Validation {
         return department.matches("^[a-zA-Z]+[a-zA-Z ]{0,200}[a-zA-Z]+$"); //assuming the department name must be between 2 to 200 characters
     }
     public static boolean verifyGPA(String GPA){ //TO BE TESTED
-        return GPA.matches("^[0-3]{1}\\.[0-9]{2}$") || GPA.matches("^4(\\.00)?$"); //from 0 to 4
+        return GPA.matches("^([0-3](\\.\\d{1,2})?|4(\\.0{1,2})?)$"); //from 0 to 4
+       
     }
     //declare verifying classes
     public static abstract class customVerifier extends InputVerifier{
@@ -49,12 +50,17 @@ public class Validation {
         protected boolean isUserWarned = false;
         protected javax.swing.JTextField Field;
         protected Color defaultColor;
-        protected void PopUp(String message){
-            if(!this.isValid && !isUserWarned){ //input not valid and the user haven't been warned before
-                javax.swing.JOptionPane.showMessageDialog(null, "you must enter valid input to proceed to the next field:\n" + message);
-                this.isUserWarned = true;
-            }
+        @Override
+        public boolean shouldYieldFocus(JComponent source, JComponent target){
+            verify(source);
+            return true;
         }
+//        protected void PopUp(String message){
+//            if(!this.isValid && !isUserWarned){ //input not valid and the user haven't been warned before
+//                javax.swing.JOptionPane.showMessageDialog(null, "you must enter valid input to proceed to the next field:\n" + message);
+//                this.isUserWarned = true;
+//            }
+//        }
         protected void updateColor(){
             if(this.isValid == false){
                 Field.setBackground(Color.red);
@@ -77,7 +83,6 @@ public class Validation {
             String target = ((JTextField) input).getText();
             this.isValid = verifyID(target);
             updateColor();
-            PopUp("ID must be 5 digits only!");
             return this.isValid;
         }
     }
@@ -91,7 +96,6 @@ public class Validation {
             String target = ((JTextField) input).getText();
             this.isValid = verifyName(target);
             updateColor();
-            PopUp("Full name only, a full name consists of 3 to 4 names");
             return this.isValid;
         }
     }
@@ -105,7 +109,6 @@ public class Validation {
             String target = ((JTextField) input).getText();
             this.isValid = verifyGPA(target);
             updateColor();
-            PopUp("GPA must be from 0 to 4");
             return this.isValid;
         }
     }
@@ -119,7 +122,6 @@ public class Validation {
             String target = ((JTextField) input).getText();
             this.isValid = verifyDepartment(target);
             updateColor();
-            PopUp("department name must be 2 to 200 characters long (letters only)");
             return this.isValid;
         }
     }

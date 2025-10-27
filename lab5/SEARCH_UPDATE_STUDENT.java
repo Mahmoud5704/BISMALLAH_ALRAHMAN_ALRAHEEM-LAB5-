@@ -1,4 +1,4 @@
-package gui;
+package lab5;
 
 import backend.StudentOperations;
 import javax.swing.JFrame;
@@ -285,6 +285,7 @@ public class SEARCH_UPDATE_STUDENT extends javax.swing.JPanel {
             EDIT editDialog = new EDIT(frame, true);
             editDialog.openEditDialogForRow(frame, row, edittable);
         }
+        TableLoader.loadStudents((DefaultTableModel) edittable.getModel(), new StudentOperations().ViewStudents()); //update table after operation
 
     }//GEN-LAST:event_updateButtonActionPerformed
 
@@ -328,6 +329,7 @@ public class SEARCH_UPDATE_STUDENT extends javax.swing.JPanel {
                 EDIT editDialog = new EDIT(frame, true);
                 editDialog.openEditDialogForRow(frame, row, edittable);
             }
+            TableLoader.loadStudents((DefaultTableModel) edittable.getModel(), new StudentOperations().ViewStudents()); //update table after operation
     }//GEN-LAST:event_edittableKeyPressed
     }
 

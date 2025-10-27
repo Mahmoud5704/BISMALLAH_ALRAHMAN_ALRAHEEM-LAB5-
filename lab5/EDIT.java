@@ -1,9 +1,11 @@
-package gui;
+package lab5;
 
 import javax.swing.JOptionPane;
 import validation.Validation;
 import backend.StudentOperations;
 import backend.StudentModule;
+import backend.TableLoader;
+import javax.swing.table.DefaultTableModel;
 
 public class EDIT extends javax.swing.JDialog {
 
@@ -298,13 +300,10 @@ public class EDIT extends javax.swing.JDialog {
         String gender = genderBox.getSelectedItem().toString();
         StudentModule student = new StudentModule(Integer.parseInt(ID), name, Integer.parseInt(age), gender, department, Double.parseDouble(grade));
         boolean success = operator.UpdateStudent(originalID, student);
-        for (int i = 0; i < updatedData.length; i++) {
-            if (updatedData[i] == null) updatedData[i] = "";
-            edittable.setValueAt(updatedData[i], row, i);
-        }
         String message;
-        if(success)
+        if(success){
             message = "Data saved successfully!";
+        }
         else
             message = "Error: student not found or another student has the entered ID";
         JOptionPane.showMessageDialog(this, message);

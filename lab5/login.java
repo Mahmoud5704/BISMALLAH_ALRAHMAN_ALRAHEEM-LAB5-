@@ -1,4 +1,4 @@
-package gui;
+package lab5;
 
 import java.awt.Color;
 import backend.LoginCheck;

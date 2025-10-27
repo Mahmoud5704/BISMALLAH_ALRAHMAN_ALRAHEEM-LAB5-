@@ -1,5 +1,5 @@
 
-package gui;
+package lab5;
 import javax.swing.JFrame;
 import backend.StudentOperations;
 import javax.swing.*;
