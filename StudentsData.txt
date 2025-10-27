@@ -1,0 +1,7 @@
+101,John Doe,Computer Science,3.8,20,Male
+10245,hamada alwensh aaa fff,Mathematics,3.55,21,Male
+103,Alice Johnson,Physics,3.9,106,Female
+105,Charlie Davis,Alice,3.6,20,Male
+106,Diana Evans,English,3.7,21,Female
+107,Edward Wilson,History,3.4,22,Male
+12344,fefq gfds fssdfs sf,rsgsrgrs,4.0,17,Male
