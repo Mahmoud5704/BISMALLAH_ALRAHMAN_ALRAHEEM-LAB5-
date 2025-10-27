@@ -8,6 +8,7 @@ public class TableLoader {
     // loads any list of students into a given DefaultTableModel
     public static void loadStudents(DefaultTableModel model, List<StudentModule> students) {
         model.setRowCount(0); // clear old rows
+        students.sort((s1, s2) -> Double.compare(s2.getGpa(), s1.getGpa()));
         for (StudentModule s : students) {
             Object[] row = {
                 s.getId(),
