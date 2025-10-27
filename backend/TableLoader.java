@@ -10,8 +10,8 @@ public class TableLoader {
         model.setRowCount(0); // clear old rows
         for (StudentModule s : students) {
             Object[] row = {
+                s.getId(),
                 s.getName(),
-                String.valueOf(s.getId()),
                 s.getDepartment(),
                 s.getGpa(),
                 s.getAge(),
