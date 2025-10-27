@@ -189,7 +189,7 @@ public class login extends javax.swing.JFrame {
 
         userField.setBackground(new java.awt.Color(0, 102, 153));
         userField.setForeground(new java.awt.Color(153, 153, 153));
-        userField.setText("username ");
+        userField.setText("username");
         userField.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         userField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         userField.setDebugGraphicsOptions(javax.swing.DebugGraphics.LOG_OPTION);
