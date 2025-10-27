@@ -1,19 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package validation;
 
 import java.awt.Color;
 import javax.swing.InputVerifier;
 import javax.swing.JComponent;
 import javax.swing.JTextField;
+import javax.swing.border.Border;
 
-/**
- *
- * @author zeyad
- */
-    
 public class Validation {
     public static boolean verifyID(String ID){
         if (ID == null)
@@ -43,7 +35,9 @@ public class Validation {
     public static boolean verifyGPA(String GPA){ //TO BE TESTED
         return GPA.matches("^[0-3]{1}\\.[0-9]{2}$") || GPA.matches("^4(\\.00)?$"); //from 0 to 4
     }
-    //declare verifying classes
+    
+    
+    ////////////////////////////////////////////////declare verifying classes
     public static abstract class customVerifier extends InputVerifier{
         protected boolean isValid;
         protected boolean isUserWarned = false;
@@ -57,7 +51,7 @@ public class Validation {
         }
         protected void updateColor(){
             if(this.isValid == false){
-                Field.setBackground(Color.red);
+                Field.setBorder((Border) Color.red);
             }
             else{
                 Field.setBackground(defaultColor);
@@ -123,6 +117,9 @@ public class Validation {
             return this.isValid;
         }
     }
+    
+    
+    
     public static IDVerifier getIDVerifier(javax.swing.JTextField Field){
         return new IDVerifier(Field);
     }
