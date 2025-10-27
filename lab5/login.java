@@ -12,7 +12,7 @@ public class login extends javax.swing.JFrame {
      */
     public login() {
         initComponents();
-     //   img.setIcon(new javax.swing.ImageIcon(backend.Backend.LOGIN_IMG));
+        jLabel3.setIcon(new javax.swing.ImageIcon(backend.Backend.LOGIN_IMG));
         setLocationRelativeTo(null);
     }
 
