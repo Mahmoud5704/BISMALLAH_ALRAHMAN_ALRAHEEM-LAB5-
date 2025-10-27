@@ -26,6 +26,8 @@ public class SEARCH_UPDATE_STUDENT extends javax.swing.JPanel {
             frame.pack();
             frame.setLocationRelativeTo(null);
             frame.setVisible(true);
+            img.setIcon(new javax.swing.ImageIcon(backend.Backend.SEARCH_IMG));
+
         }
 
     }
@@ -48,7 +50,7 @@ public class SEARCH_UPDATE_STUDENT extends javax.swing.JPanel {
         jLabel10 = new javax.swing.JLabel();
         EDIT_TABLE = new javax.swing.JScrollPane();
         edittable = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
+        img = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
@@ -135,7 +137,7 @@ public class SEARCH_UPDATE_STUDENT extends javax.swing.JPanel {
             }
         });
 
-        updateButton.setText("UPDATE");
+        updateButton.setText("EDIT");
         updateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updateButtonActionPerformed(evt);
@@ -206,8 +208,7 @@ public class SEARCH_UPDATE_STUDENT extends javax.swing.JPanel {
         });
         EDIT_TABLE.setViewportView(edittable);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\ELOott\\Documents\\NetBeansProjects\\GUII\\SEARCH.JPG.jpg")); // NOI18N
-        jLabel1.setText("jLabel1");
+        img.setText("jLabel1");
 
         jLabel11.setFont(new java.awt.Font("Stencil", 1, 36)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
@@ -219,7 +220,7 @@ public class SEARCH_UPDATE_STUDENT extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(img, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(104, 104, 104)
@@ -257,7 +258,7 @@ public class SEARCH_UPDATE_STUDENT extends javax.swing.JPanel {
                     .addComponent(updateButton)
                     .addComponent(jButton2))
                 .addContainerGap(14, Short.MAX_VALUE))
-            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(img, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -336,6 +337,7 @@ public class SEARCH_UPDATE_STUDENT extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JScrollPane EDIT_TABLE;
     public javax.swing.JTable edittable;
+    private javax.swing.JLabel img;
     private javax.swing.JButton jButton2;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JDialog jDialog2;
@@ -343,7 +345,6 @@ public class SEARCH_UPDATE_STUDENT extends javax.swing.JPanel {
     private javax.swing.JDialog jDialog4;
     private javax.swing.JDialog jDialog5;
     private javax.swing.JDialog jDialog6;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JPanel jPanel1;

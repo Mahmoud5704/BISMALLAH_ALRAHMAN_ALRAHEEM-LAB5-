@@ -7,6 +7,7 @@ public class MAIN extends javax.swing.JFrame {
     public MAIN() {
         initComponents();
         setLocationRelativeTo(null);
+        jLabel1.setIcon(new javax.swing.ImageIcon(backend.Backend.MAIN_IMG));
     }
 
     @SuppressWarnings("unchecked")
@@ -37,7 +38,6 @@ public class MAIN extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\ELOott\\Documents\\NetBeansProjects\\GUII\\main.png")); // NOI18N
         jLabel1.setText("jLabel1");
 
         jPanel2.setBackground(new java.awt.Color(102, 102, 102));

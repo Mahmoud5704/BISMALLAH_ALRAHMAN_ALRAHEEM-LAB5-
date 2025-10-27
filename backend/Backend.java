@@ -9,12 +9,11 @@ package backend;
  * @author Yahya
  */
 public class Backend {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
-    
+    public static final String ADD_IMG = "src/imgs/ADD.JPG (2).jpg";
+    public static final String DELETE_IMG = "src/imgs/DELETE.png";
+    public static final String SEARCH_IMG = "src/imgs/SEARCH.JPG.jpg";
+    public static final String ID_IMG = "src/imgs/ID_IMG.jpeg";
+    public static final String VIEW_IMG = "src/imgs/VIEW.jpg";
+    public static final String LOGIN_IMG = "src/imgs/login.jpg";
+    public static final String MAIN_IMG = "src/imgs/main.png";
 }

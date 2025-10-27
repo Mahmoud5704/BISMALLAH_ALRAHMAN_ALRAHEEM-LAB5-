@@ -12,6 +12,7 @@ public class login extends javax.swing.JFrame {
      */
     public login() {
         initComponents();
+        img.setIcon(new javax.swing.ImageIcon(backend.Backend.LOGIN_IMG));
         setLocationRelativeTo(null);
     }
 
@@ -40,7 +41,7 @@ public class login extends javax.swing.JFrame {
         login = new javax.swing.JButton();
         userField = new javax.swing.JTextField();
         passField = new javax.swing.JPasswordField();
-        jLabel1 = new javax.swing.JLabel();
+        img = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
         jFrame1.getContentPane().setLayout(jFrame1Layout);
@@ -268,9 +269,8 @@ public class login extends javax.swing.JFrame {
 
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 270, 160));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\ELOott\\Documents\\NetBeansProjects\\GUII\\login.jpg")); // NOI18N
-        jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -21, 520, 400));
+        img.setText("jLabel1");
+        getContentPane().add(img, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -21, 520, 380));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -363,6 +363,7 @@ public class login extends javax.swing.JFrame {
     // l.
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JLabel img;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JFrame jFrame2;
@@ -370,7 +371,6 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JFrame jFrame4;
     private javax.swing.JFrame jFrame5;
     private javax.swing.JFrame jFrame6;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

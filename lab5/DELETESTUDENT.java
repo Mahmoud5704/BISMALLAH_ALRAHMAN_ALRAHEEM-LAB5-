@@ -23,6 +23,7 @@ private JFrame frame;
             frame.pack();
             frame.setLocationRelativeTo(null);
             frame.setVisible(true);
+            img.setIcon(new javax.swing.ImageIcon(backend.Backend.DELETE_IMG));
         }
 
     }
@@ -39,7 +40,7 @@ private JFrame frame;
         jLabel15 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         DELETE_TABLE = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
+        img = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
 
@@ -146,16 +147,15 @@ private JFrame frame;
                 .addGap(17, 17, 17))
         );
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\ELOott\\Documents\\NetBeansProjects\\GUII\\DELETE.png")); // NOI18N
-        jLabel2.setText("jLabel1");
-        jLabel2.setPreferredSize(new java.awt.Dimension(342, 336));
+        img.setText("jLabel1");
+        img.setPreferredSize(new java.awt.Dimension(342, 336));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(img, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -164,7 +164,7 @@ private JFrame frame;
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE))
+                    .addComponent(img, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE))
                 .addGap(0, 0, 0))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -210,10 +210,10 @@ private JFrame frame;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable DELETE_TABLE;
     private javax.swing.JButton deleteButton;
+    private javax.swing.JLabel img;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

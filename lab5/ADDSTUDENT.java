@@ -4,6 +4,7 @@ import backend.StudentOperations;
 import backend.StudentModule;
 import validation.Validation;
 import java.awt.Dimension;
+import javax.swing.ImageIcon;
 import javax.swing.InputVerifier;
 import javax.swing.JFrame;
 
@@ -24,6 +25,7 @@ public class ADDSTUDENT extends javax.swing.JPanel {
             frame.setLocationRelativeTo(null);
             frame.setVisible(true);
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            img.setIcon(new javax.swing.ImageIcon(backend.Backend.ADD_IMG));
             ///////////////////////////////////////////////////////
             IDVerifierObj = Validation.getIDVerifier(IDField);
             IDField.setInputVerifier(IDVerifierObj);
@@ -44,7 +46,7 @@ public class ADDSTUDENT extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         jDialog1 = new javax.swing.JDialog();
         jDialog2 = new javax.swing.JDialog();
-        jLabel1 = new javax.swing.JLabel();
+        img = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         nameField = new javax.swing.JTextField();
         Add = new javax.swing.JButton();
@@ -101,10 +103,11 @@ public class ADDSTUDENT extends javax.swing.JPanel {
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setBackground(new java.awt.Color(0, 0, 102));
-        jLabel1.setMaximumSize(new java.awt.Dimension(2147483647, 2147483647));
-        jLabel1.setMinimumSize(new java.awt.Dimension(80, 29));
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 450));
+        img.setBackground(new java.awt.Color(0, 0, 102));
+        img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/ADD.JPG (2).jpg"))); // NOI18N
+        img.setMaximumSize(new java.awt.Dimension(2147483647, 2147483647));
+        img.setMinimumSize(new java.awt.Dimension(80, 29));
+        add(img, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 300, 460));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 51));
         jPanel1.setToolTipText("ADD STUDENT");
@@ -423,11 +426,11 @@ public class ADDSTUDENT extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> ageBox;
     private javax.swing.JComboBox<String> genderBox;
     private javax.swing.JTextField gradeField;
+    private javax.swing.JLabel img;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JDialog jDialog2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
